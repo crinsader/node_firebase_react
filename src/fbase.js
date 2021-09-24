@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
+import firebase from "firebase/app"
 // 개별 export 하려면 각각의 기능들을  import 해야 한다.
-import "firebase/auth";
+import "firebase/auth"
 import "firebase/storage"
 import "firebase/firestore"
 
@@ -12,14 +12,13 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID
-};
+}
 
 //export default firebase.initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig)
 
-export const authService = firebase.auth();//메서드
-export const dbService = firebase.firestore();
-export const storageService = firebase.storage();
-export const firebaseinstance = firebase;
-
+export const authService = firebase.auth() //메서드
+export const dbService = firebase.firestore()
+export const storageService = firebase.storage()
+export const firebaseinstance = firebase

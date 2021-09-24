@@ -1,19 +1,6 @@
-import { authService } from "fbase";
-import { useHistory } from "react-router";
+import { authService } from "fbase"
+import { useHistory } from "react-router"
 
-const EditProfile = () => {
-    const history = useHistory();
-    const onLogOutClick = () => {
-        authService.signOut();
-        history.push("/");  // location.href
-    }
+const EditProfile = () => {}
 
-    return(
-        <>
-            <h1>프로필</h1>
-            <button onClick={onLogOutClick}>Log out </button>
-        </>
-    )
-}
-
-export default EditProfile;
+export default EditProfile
