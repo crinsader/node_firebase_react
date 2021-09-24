@@ -22,7 +22,7 @@ function App() {
       <div style={style}>{name}</div>
       <div className="gray-box"></div>
       <br/>
-      <footer>&copy; {new Date().toDateString()} twitter</footer>
+      <footer>&copy; {new Date().toDateString()} Nwitter</footer>
     </Wrapper>
   );
 }

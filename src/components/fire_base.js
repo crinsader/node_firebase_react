@@ -4,7 +4,7 @@ import React from "react";
 const FirebaseComponent = (props, isSpecial) => {
     return (
         <h1 style={{color:props.color}}>
-            { isSpecial ? <b>*</b> : null} 안녕하냥 {props.name}</h1>
+            { isSpecial ? <b>*</b> : null}안녕하냥 {props.name}</h1>
     );
 }
 
