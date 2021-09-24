@@ -1,3 +1,3 @@
-const List =()=> <span>List</span>
+const List = () => {}
 
-export default List;
+export default List
