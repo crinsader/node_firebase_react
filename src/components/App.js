@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import FirebaseComponent from "./fire_base";
 import AppRouter from "./Router";
 import '../App.css';
@@ -8,9 +8,21 @@ import { authService } from "fbase";
 function App() {
   // 상수 선언, ES6문번의 구조 분해 할당
 
-  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+  const [init, setInit] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // 현재 접속자 확인
-  console.log(authService.currentUser)
+    useEffect(()=>{
+      //console.log(authService.currentUser)
+      //setIsLoggedIn(authService.currentUser)
+      authService.onAuthStateChanged((user)=>{
+        if(user){
+          setIsLoggedIn(user)
+        }else{
+          setIsLoggedIn(false)
+        }
+      });//이벤트 핸들러 - 인증 정보 변겨오디면 실행 됨
+    },[])
+  
   const name = "park";
   const style = {
     backgroundColor: 'black',
@@ -20,7 +32,7 @@ function App() {
   };
   return (
     <Wrapper>
-      <AppRouter isLoggedIn={isLoggedIn}></AppRouter>
+      {init ? <AppRouter isLoggedIn={isLoggedIn}></AppRouter> : "initializing ..."}
       <FirebaseComponent name="park" color="red" isSpecial={true}/>
       <FirebaseComponent color="pink"/>
       <div style={style}>{name}</div>

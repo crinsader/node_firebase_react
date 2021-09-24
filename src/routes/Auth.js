@@ -22,17 +22,32 @@ const Auth = () =>{
 
     }
 
-    const onSubmit=(event)=>{
+    const onSubmit= async (event)=>{
         event.preventDefault();//submit 일시정지 기능
-        if(newAccount){
-            //새로 만드는것
-        }else{
-            // 로긴
+        try{
+            let data;
+            if(newAccount){
+                //새로 만드는것
+                data=await authService.createUserWithEmailAndPassword(email, password);
+            }else{
+                // 로긴
+                data=await authService.signInWithEmailAndPassword(email, password);
+            }
+            console.log(data)
+        }catch(error){
+            //console.log(error)
+            setError(error.message)
         }
 
     }
 
     const toggleAccount=(event)=>{
+        console.log("여기는 토글", newAccount)
+        //setNewAccount(newAccount ? false : true);
+        // setNewAccount(function(prev){
+        //    return !prev;
+        // })
+        setNewAccount((prev)=>!prev);
 
     }
 
