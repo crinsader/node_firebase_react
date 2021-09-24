@@ -3,11 +3,13 @@ import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 import Profile from "../routes/Profile";
 import List from "../routes/List.js";
+import Navigation from './Navigation';
 
 const AppRouter = ({isLoggedIn}) => {
 
     return (
         <Router>
+            {isLoggedIn && <Navigation />}
             <Switch>
                 {isLoggedIn ? (
                     <>
