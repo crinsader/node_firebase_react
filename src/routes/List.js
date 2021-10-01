@@ -1,4 +1,5 @@
 import { dbService } from "fbase"
+import { useState } from "react"
 
 const dataArray = []
 const List = () => {
@@ -11,8 +12,8 @@ const List = () => {
         Year: doc.data().year
       })
     })
+    console.log(dataArray[0])
   })
-  console.log(dataArray[0])
 
   return (
     <div>
